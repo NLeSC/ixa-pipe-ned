@@ -19,6 +19,7 @@ public class CLI {
 
     public static void main(String[] args) throws Exception { // throws IOException {
     	
+        System.err.println("Timestamp EHU-ned start in-command: " + System.currentTimeMillis());
     	Namespace parsedArguments = null;
 
         // create Argument Parser
@@ -76,11 +77,14 @@ public class CLI {
 
 		List<Entity> entities = kaf.getEntities();
 		if (!entities.isEmpty()){
+                    System.err.println("Timestamp EHU-ned start work: " + System.currentTimeMillis());
 		    annotator.disambiguateNEsToKAF(kaf, host, port);
+                    System.err.println("Timestamp EHU-ned end work: " + System.currentTimeMillis());
 		}
 		lp.setEndTimestamp();
 		w.write(kaf.toString());
 		w.close();
+                System.err.println("Timestamp EHU-ned end in-command: " + System.currentTimeMillis());
 	    } 
 
 }
