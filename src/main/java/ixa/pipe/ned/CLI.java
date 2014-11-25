@@ -61,7 +61,9 @@ public class CLI {
         String port = parsedArguments.getString("port");
         String host = parsedArguments.getString("host");
 
+        System.err.println("Timestamp EHU-ned start setup: " + System.currentTimeMillis());
     	Annotate annotator = new Annotate();
+        System.err.println("Timestamp EHU-ned end setup: " + System.currentTimeMillis());
 		// Input
 		BufferedReader stdInReader = null;
 		// Output
